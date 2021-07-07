@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/d4634a3b-e8b4-4aea-ad50-6237c9236f99/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/OnCallWS",
+    "appService.deploySubpath": ""
+}
