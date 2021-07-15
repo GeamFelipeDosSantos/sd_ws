@@ -31,6 +31,18 @@ module.exports = (app) => {
         }
         
     });
+
+    router.put('/:id', async (req,res,next) => {
+        try{
+            const result = await app.services.registro.update({id:req.params.id},req.body)
+            //console.log(req.body);
+            return res.status(201).json(result[0]);
+            
+        }catch(erro){
+            next(erro);
+        }
+        
+    });
     
     return router;
 };

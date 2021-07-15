@@ -21,6 +21,21 @@ module.exports = (app) => {
         return app.db('registro').insert(registro,'*');
     };
 
+    
+    const update =  (filter = {},registro) => {
+        console.log(registro);
+        console.log("Executando save registro !!!!!!!!!!!!");
+        if(!registro.descricao_problema) throw new ValidacaoErro('Descricao do problema do registro é um atributo obrigatório');
+        if(!registro.cidade) throw new ValidacaoErro('Nome da cidade é um atributo obrigatório');
+        if(!registro.linha) throw new ValidacaoErro('Linha é um atributo obrigatório');
+        if(!registro.horario_linha) throw new ValidacaoErro('Horario da linha é um atributo obrigatório');
+        if(!registro.resolvido) throw new ValidacaoErro('Resolvido é um atributo obrigatório');
+        if(!registro.dt_registro) throw new ValidacaoErro('Data do registro é um atributo obrigatório');
+        
+        return app.db('registro').where(filter).update(registro,'*');
+    };
+
+
     /*const deletar =  (registro) => {
         console.log("Deletando registro:");
         console.log(registro);
@@ -39,5 +54,5 @@ module.exports = (app) => {
     };
 
     
-    return {findAll, save,find, findOne};
+    return {findAll, save,find,update, findOne};
 };
